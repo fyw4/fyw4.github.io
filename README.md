@@ -1,0 +1,17 @@
+## 主要修改记录：
+**2020.12.10：</br>**
+1.创建该项目,包含readme.md和MIT协议；</br>
+2.绑定阿里云域名：https://www.wangqingchuan92.com/;</br>
+3.上传一个HTML5 模板，模板地址：https://html5up.net/editorial。</br>
+
+**2020.12.12：</br>**
+1.修改联系方式；</br>
+
+**2020.12.19：</br>**
+1.使用hexo框架搭建博客，上传至github，上传分支名为master；</br>
+2.修改master为默认branch，删除main分支；</br>
+3.在调试过程中有过几次删除并新建io项目。</br>
+
+**2020.12.22：</br>**
+1.增加站内搜索功能；</br>
+2.修改站点配置文件_config.yml在skip_render位置添加README.md让md文件不被转换成HTML。</br>
