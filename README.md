@@ -17,4 +17,4 @@
 2.修改站点配置文件_config.yml在skip_render位置添加README.md让md文件不被转换成HTML。</br>
 
 **2020.12.26：</br>**
-1.文章末尾增加note;</br>
+1.修改杂项;</br>
