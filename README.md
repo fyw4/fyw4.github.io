@@ -34,3 +34,6 @@
 **2021.1.6：</br>**
 1.隐藏网页底部powered By Hexo / 强力驱动信息;</br>
 2.添加hexo next主题下开启emoji功能。</br>
+
+**2021.1.10：</br>**
+1.去除 Valine的 Powered By;</br>
