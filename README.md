@@ -36,4 +36,7 @@
 2.添加hexo next主题下开启emoji功能。</br>
 
 **2021.1.10：</br>**
-1.去除 Valine的 Powered By;</br>
+1.去除 Valine的 Powered By。</br>
+
+**2021.1.18：</br>**
+1.修改博客文章字体大小。</br>
