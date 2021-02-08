@@ -45,4 +45,5 @@
 1.增加侧栏显示近期文章功能。</br>
 
 **2021.2.8：</br>**
-1.修改valine评论APPID和APPKey错误问题。</br>
+1.修改valine评论APPID和APPKey错误问题;</br>
+2.修改新建文章的默认模板。</br>
