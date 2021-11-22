@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="金融知识学习," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王晴川的个人博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="笔记内容来源于《金融数量分析-基于MATLAB编程（第4版）》。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【金融学习】商业贷款分析笔记">
+<meta property="og:url" content="https://wangqingchuan92.com/2021/03/14/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%95%86%E4%B8%9A%E8%B4%B7%E6%AC%BE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="王晴川的个人博客">
+<meta property="og:description" content="笔记内容来源于《金融数量分析-基于MATLAB编程（第4版）》。">
+<meta property="og:locale">
+<meta property="og:image" content="https://wangqingchuan92.com/2021/03/14/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%95%86%E4%B8%9A%E8%B4%B7%E6%AC%BE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/%E7%AD%89%E9%A2%9D%E8%BF%98%E6%AC%BE%E6%A8%A1%E5%9E%8B.gif">
+<meta property="og:image" content="https://wangqingchuan92.com/2021/03/14/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%95%86%E4%B8%9A%E8%B4%B7%E6%AC%BE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/%E4%B8%A4%E7%A7%8D%E8%BF%98%E6%AC%BE%E6%96%B9%E5%BC%8F%E6%AF%94%E8%BE%83.jpg">
+<meta property="article:published_time" content="2021-03-14T10:38:55.000Z">
+<meta property="article:modified_time" content="2021-03-18T07:42:27.591Z">
+<meta property="article:author" content="Qingchuan Wang">
+<meta property="article:tag" content="金融知识学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangqingchuan92.com/2021/03/14/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%95%86%E4%B8%9A%E8%B4%B7%E6%AC%BE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/%E7%AD%89%E9%A2%9D%E8%BF%98%E6%AC%BE%E6%A8%A1%E5%9E%8B.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wangqingchuan92.com/2021/03/14/【金融学习】商业贷款分析笔记/"/>
+
+
+
+
+
+  <title>【金融学习】商业贷款分析笔记 | 王晴川的个人博客</title>
+  
+
+
+
+
+
+
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王晴川的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Qingchuan Wang's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-资源">
+          <a href="/resources" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-download"></i> <br />
+            
+            资源
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangqingchuan92.com/2021/03/14/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%95%86%E4%B8%9A%E8%B4%B7%E6%AC%BE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王晴川的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【金融学习】商业贷款分析笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-14T18:38:55+08:00">
+                2021-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%91%E8%9E%8D%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index">
+                    <span itemprop="name">金融相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/03/14/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%95%86%E4%B8%9A%E8%B4%B7%E6%AC%BE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/03/14/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%95%86%E4%B8%9A%E8%B4%B7%E6%AC%BE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>笔记内容来源于《金融数量分析-基于MATLAB编程（第4版）》。</p>
+<a id="more"></a>
+<p><font color="red">按揭</font>的通俗意义就是指用<strong>预购</strong>的商品房进行贷款抵押。它是指按揭人将预购的物业产权转让于按揭受益人（银行）作为还款保证，还款后，按揭受益人将物业的产权转让给按揭人。<br><br>
+具体地说，按揭贷款是指购房者以所预购的房屋作为抵押品而从银行获得贷款，购房者按照按揭契约中规定的归还方式和期限分期付款给银行；银行按一定的利率收取利息。如果贷款人违约，那么银行有权收走房屋。<br></p>
+<h1>1 按揭贷款还款方式</h1>
+<h2 id="1）等额还款"><a class="header-anchor" href="#1）等额还款">¶</a>1）等额还款</h2>
+<p><font color="blue">借款人每期以相等的金额偿还贷款，按还款周期逐期归还</font>，在贷款截至日期前偿还全部本息。例如，贷款30万元，20年还款期，每月还款4000元。<br></p>
+<h2 id="2）等额本金还款"><a class="header-anchor" href="#2）等额本金还款">¶</a>2）等额本金还款</h2>
+<p><font color="blue">借款人每期需偿还等额本金，同时付清本期应付的贷款利息</font>，而每期归还的本金等于贷款总额除以贷款期数。<font color="blue">实际每期还款总额为递减数列</font>。<br></p>
+<h2 id="3）等额递增还款"><a class="header-anchor" href="#3）等额递增还款">¶</a>3）等额递增还款</h2>
+<p><font color="blue">借款人每期以等额还款为基础，以每次及那个固定期数还款额增加一个固定金额的方式还款</font>（如三年期贷款，每隔12个月增加还款100元，若第一年每月还款1000元，则第二年每月还款1100元，第三年为1200元）。此种还款方式适用于当前收入较低，但收入曲线呈上升趋势的年轻客户。<br></p>
+<h2 id="4）等额递减还款"><a class="header-anchor" href="#4）等额递减还款">¶</a>4）等额递减还款</h2>
+<p><font color="blue">借款人每期以等额还款为基础，以每次间隔固定期数还款额减少一个固定金额的方式还款</font>（如三年期贷款，每隔12个月减少还款100元，若第一年每月还款1000元，则第二年每年还款900元，第三年为800元）。此种还款方式适用于当前收入较高，或有一定积蓄可用于还款的客户。<br></p>
+<h2 id="5）按期付息还款"><a class="header-anchor" href="#5）按期付息还款">¶</a>5）按期付息还款</h2>
+<p><font color="blue">借款人按期还本，按一间隔期（还本间隔）等额偿还贷款本金，再按另一间隔期（还息间隔）定期结息</font>，如每三个月偿还一次贷款本金，每月偿还贷款利息。此种还款方式适合使用季度、年度奖金进行还款的客户。<br></p>
+<h2 id="6）到期还本还款"><a class="header-anchor" href="#6）到期还本还款">¶</a>6）到期还本还款</h2>
+<p><font color="blue">借款人在整个贷款期间不归还任何本金，在贷款到期日一次全部还清贷款本金</font>。贷款利息可按月、按季或到期偿还，也可以在贷款到期日一次性偿还。<br><br>
+等额还款和等额本金还款是最主要的两种还款方式，其余几种基本上都是从这两种方式的基础上衍生出来的。<br></p>
+<h1>2 等额还款模型</h1>
+<p>借款人每期以<strong>相等</strong>的金额偿还贷款，按还款周期逐期归还，在贷款截止日前全部还清本息。<br><br>
+参数假设：<br><br>
+R：月贷款利率<br><br>
+B：总借款额<br><br>
+MP：月还款额（每月还款的钱，一部分还总借款额B，一部分还利息）<br><br>
+n：还款期<br><br>
+1.根据月初贷款余额计算该月还款额中的现金流，包括支付利息和偿还本金，月还款总额一定。<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">YE(t + 1) &#x3D; YE(t) -BJ(t) </span><br><span class="line">BJ(t) &#x3D; MP - IR(t)</span><br><span class="line">IR(t) &#x3D; YE(t) * R</span><br></pre></td></tr></table></figure>
+<p>YE(t)为月初贷款余额；IR(t)为月利息偿还额；BJ(t)为本月金额偿还额；t = 1，……，n。<br><br>
+2.随着如期缴纳最后一期月供贷款，贷款全部还清，即YE(t) = 0。<br>
+通常情况下，贷款总额和利息是已知的，月还款额与还款期限未定，根据上述等额还款模型，月还款期限存在着关联关系，当YE(1) = B时，计算YE(t + 1) = YE(t) - BJ(t) = 0,得到MP的值，最后的还款余额为0。  <br><br>
+通过MATLAB编程，等额还款模型的函数语法如下：<br><br>
+F = AJfixPayment(MP, Num, B, Rate)<br><br>
+输入参数：<br><br>
+MP:每月还款总额<br><br>
+Num:还款期数<br><br>
+B:贷款总额<br><br>
+Rate:贷款利率<br><br>
+输出参数：<br><br>
+F：最后的贷款余额<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function F &#x3D; AJfixPayment(MP, Num, B, Rate)</span><br><span class="line">%初始化相关变量，初始值为0</span><br><span class="line">IR &#x3D; zeros(1, Nums);</span><br><span class="line">YE &#x3D; zeros(1, Nums);</span><br><span class="line">BJ &#x3D; zeros(1, Nums);</span><br><span class="line">%第1期贷款本金</span><br><span class="line">YE(1) &#x3D; B;</span><br><span class="line">for i &#x3D; 1 : Num</span><br><span class="line">        %第1期应还利息</span><br><span class="line">        IR(i) &#x3D; Rate * YE(i);</span><br><span class="line">        %第i期归还的本金 &#x3D; 第i期还款 - 第i期利息</span><br><span class="line">        BJ(i) &#x3D; MP - IR(i);</span><br><span class="line">        %非最后一次还款</span><br><span class="line">        if i &lt; Num</span><br><span class="line">        %第i + 1期本金 &#x3D; 第i期本金 - 第i期归还的本金</span><br><span class="line">        YE(i + 1) &#x3D; YE(i) - BJ(i);</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">%目标函数</span><br><span class="line">F &#x3D; B - sum(BJ);</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>注：zeros(1, Num)表示预先设置一个Num维行零向量（注明零向量很有必要，因为最后要用sum函数，不能随便初始化，比如ones）。<br><br>
+例1：<br><br>
+贷款50万元，10年还款共120期，年贷款利率5%，若每月还款5000元，则贷款余额为多少？（月利率为年利率5%除以12）：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">%还款次数</span><br><span class="line">Num &#x3D; 12 * 10;</span><br><span class="line">%贷款余额</span><br><span class="line">B &#x3D; 5e5;</span><br><span class="line">%月利率</span><br><span class="line">Rate &#x3D; 0.05&#x2F;12;</span><br><span class="line">%每次还款5000元</span><br><span class="line">MP &#x3D;5000;</span><br><span class="line">F &#x3D; AJfixPayment(MP, Num, B, Rate)</span><br></pre></td></tr></table></figure>
+<p>输出结果如下：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">F &#x3D;</span><br><span class="line"></span><br><span class="line">   4.7093e+04</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>结算结果为4709.3元，即贷款余额为4709.3元。<br><br>
+使用fsolve函数求出合适的MP值，使得在120次还款后，贷款余额为0（fsolve函数，即求解x，使得F(x) = 0,求任意贷款余额的方法，构建G(x) = F(x) + a, a为任意正数）。<br><br>
+代码如下：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Num &#x3D; 12 * 10;</span><br><span class="line">B &#x3D; 5e5;</span><br><span class="line">Rate &#x3D; 0.05 &#x2F; 12;</span><br><span class="line">%搜索初始值</span><br><span class="line">MPo &#x3D; 1000;</span><br><span class="line">%调用fsolve函数求解</span><br><span class="line">MP &#x3D; fsolve(@(MP)AJfixPayment(MP, Num, B, Rate), MPo)</span><br></pre></td></tr></table></figure>
+<p>输出结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MP &#x3D;</span><br><span class="line"></span><br><span class="line">   5.3033e+03</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>计算结果为5303.3元，即贷款50万元，10年还款总共120期，年贷利率5%，若每月还款5303.3元，则10年（即还款120期）后贷款余额为0。<br><br>
+注：fslove是MATLAB最主要的求解多变量方程与方程组的函数。<br><br>
+函数语法：<br><br>
+[x, fval, exitflag, output, jacobian] = fsolve(fun, x0, options)<br><br>
+输入参数：<br><br>
+fun：目标函数，一般使用M文件形式给出；<br><br>
+x0：优化算法初始迭代点；<br><br>
+options：参数设置。<br><br>
+输出参数：<br><br>
+x：最优点输出（或最后迭代点）。<br><br>
+fval：最优点（或最后迭代点）对应的函数值。<br><br>
+exitflag：函数结束信息（具体参见MATLAB  Help）。<br><br>
+output：函数基本信息，包括迭代次数、目标函数最大计算次数、使用算法名称、计算规模；<br><br>
+jacobian：Jaobian矩阵（主要用来判断是否得到有效解）。<br><br>
+等额还款模型具有解析解：<br></p>
+<p><img src="/2021/03/14/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%95%86%E4%B8%9A%E8%B4%B7%E6%AC%BE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/%E7%AD%89%E9%A2%9D%E8%BF%98%E6%AC%BE%E6%A8%A1%E5%9E%8B.gif" alt="等额还款模型.gif"></p>
+<p>MP为月还款额；R为月贷利率；B为总借款额；n为还款期限。<br></p>
+<h1>3 等额本金还款模型与计算</h1>
+<p>借款人每期需偿还等额本金，同时付清本期应付的贷款利息，而每期归还的本金等于贷款总额除以贷款期数。<br><br>
+参数设置：<br><br>
+R：月贷款利率；<br><br>
+B：借款总额；<br><br>
+MB：月还本金；<br><br>
+n：还款期。<br><br>
+1.根据月初贷款余额计算该月还款额中的现金流，包括支付的利息和偿还得本金，月还款本金一定。<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MB &#x3D; B &#x2F; n</span><br><span class="line">YE(1) &#x3D; B</span><br><span class="line">YE(t + 1) &#x3D; YE(t) - MB</span><br><span class="line">MP(t) &#x3D; MB + R * YE(t)</span><br><span class="line">IR(t) &#x3D; R * YE(t)</span><br></pre></td></tr></table></figure>
+<p>式中：YE(t)为月初贷款余额；IR(t)为月利息偿还额；MP(t)为月还款总额；t = 1,……，n。<br><br>
+2 随着如期缴纳最后一期月供贷款，贷款全部还清，即YE(n) = 0.<br><br>
+等额本金还款得计算比较简单，函数语法如下：<br><br>
+MP = AJvarPayment(Num, B, Rate)<br><br>
+输入参数：<br><br>
+Num：还款期数；<br><br>
+B：贷款总额；<br><br>
+Rate：贷款利率。<br><br>
+输出参数：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function MP &#x3D; AJvarPayment(Num, B, Rate)</span><br><span class="line">MP &#x3D; zeros(1, Num);</span><br><span class="line">YE &#x3D; zeros(1, Num);</span><br><span class="line">MB &#x3D; B &#x2F; Num;</span><br><span class="line">YE &#x3D; B - cumsum([0, MB * ones(1, Num - 1)]);</span><br><span class="line">MP &#x3D; MB + Rate * YE;</span><br></pre></td></tr></table></figure>
+<p>cumsum(X)函数是累加函数，例如若X = [1, 2, 3, 4, 5, 6]，则cumsum(X) = [1, 3, 6, 10, 15, 21]。<br><br>
+例2：<br><br>
+假设贷款50万元，10年还款工120期，年贷款利率5%，采用等额本金还款方式，则每月还款总额为多少？<br><br>
+求解代码如下：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Num &#x3D; 12 * 10;</span><br><span class="line">B &#x3D; 5e5;</span><br><span class="line">Rate &#x3D; 0.05 &#x2F; 12;</span><br><span class="line">MP &#x3D; AJvarPayment(Num, B, Rate)</span><br></pre></td></tr></table></figure>
+<p>输出结果如下：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">MP &#x3D;</span><br><span class="line"></span><br><span class="line">   1.0e+03 *</span><br><span class="line"></span><br><span class="line">  1 至 14 列</span><br><span class="line"></span><br><span class="line">    6.2500    6.2326    6.2153    6.1979    6.1806    6.1632    6.1458    6.1285    6.1111    6.0938    6.0764    6.0590    6.0417    6.0243</span><br><span class="line"></span><br><span class="line">  15 至 28 列</span><br><span class="line"></span><br><span class="line">    6.0069    5.9896    5.9722    5.9549    5.9375    5.9201    5.9028    5.8854    5.8681    5.8507    5.8333    5.8160    5.7986    5.7813</span><br><span class="line"></span><br><span class="line">  29 至 42 列</span><br><span class="line"></span><br><span class="line">    5.7639    5.7465    5.7292    5.7118    5.6944    5.6771    5.6597    5.6424    5.6250    5.6076    5.5903    5.5729    5.5556    5.5382</span><br><span class="line"></span><br><span class="line">  43 至 56 列</span><br><span class="line"></span><br><span class="line">    5.5208    5.5035    5.4861    5.4688    5.4514    5.4340    5.4167    5.3993    5.3819    5.3646    5.3472    5.3299    5.3125    5.2951</span><br><span class="line"></span><br><span class="line">  57 至 70 列</span><br><span class="line"></span><br><span class="line">    5.2778    5.2604    5.2431    5.2257    5.2083    5.1910    5.1736    5.1563    5.1389    5.1215    5.1042    5.0868    5.0694    5.0521</span><br><span class="line"></span><br><span class="line">  71 至 84 列</span><br><span class="line"></span><br><span class="line">    5.0347    5.0174    5.0000    4.9826    4.9653    4.9479    4.9306    4.9132    4.8958    4.8785    4.8611    4.8438    4.8264    4.8090</span><br><span class="line"></span><br><span class="line">  85 至 98 列</span><br><span class="line"></span><br><span class="line">    4.7917    4.7743    4.7569    4.7396    4.7222    4.7049    4.6875    4.6701    4.6528    4.6354    4.6181    4.6007    4.5833    4.5660</span><br><span class="line"></span><br><span class="line">  99 至 112 列</span><br><span class="line"></span><br><span class="line">    4.5486    4.5312    4.5139    4.4965    4.4792    4.4618    4.4444    4.4271    4.4097    4.3924    4.3750    4.3576    4.3403    4.3229</span><br><span class="line"></span><br><span class="line">  113 至 120 列</span><br><span class="line"></span><br><span class="line">    4.3056    4.2882    4.2708    4.2535    4.2361    4.2187    4.2014    4.1840</span><br><span class="line"></span><br><span class="line">&gt;&gt; </span><br></pre></td></tr></table></figure>
+<h1>4 还款方式比较</h1>
+<p>通过上两例可以画出等额本金以及等额本息还款得对比图：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> ... ... %例2中等额本金程序</span><br><span class="line">plot(m,(5.3033e+03)*ones(1,Num), &#39;r-&#39;);%例1中求得等额本息      </span><br><span class="line">hold on</span><br><span class="line">plot(m, MP, &#39;b-&#39;);</span><br><span class="line"></span><br><span class="line">xlabel(&#39;还款序列t&#39;);</span><br><span class="line">ylabel(&#39;还款金额&#x2F;元&#39;);</span><br><span class="line"></span><br><span class="line">legend(&#39;MPFix&#39;,&#39;MPVar&#39;);</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/14/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%95%86%E4%B8%9A%E8%B4%B7%E6%AC%BE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/%E4%B8%A4%E7%A7%8D%E8%BF%98%E6%AC%BE%E6%96%B9%E5%BC%8F%E6%AF%94%E8%BE%83.jpg" alt="两种还款方式比较.jpg"></p>
+<p>以贷款50万元，10年还款工120期，年贷款利率5%为例，等额还款方式得还款总额为636390元，等额本金还款方式得总额为626040元，从数量上讲等额本金方式的总还款额较少。<br><br>
+但是如果考虑到货币得时间价值，PV(MPFix) = PV(MPVar) = 5000元，两种还款方式得现值都是相等的。<br></p>
+<h1>5 提前还款违约金估算</h1>
+<p>商业银行的盈利模式之一为吸收存款，放出贷款后的存贷差。以上述贷款案例为例，若贷款50万元，10年还款共120期，年贷款利率5%，则采用等额还款方式计算出MP = 5303.3元，银行的贷款利率为5%，如果其存款利率为4%(仅为假设数据)，则现金流现值MATLAB计算代码如下：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RATE &#x3D; 0.04 &#x2F; 12;</span><br><span class="line">N &#x3D; 10 * 12;</span><br><span class="line">Payment &#x3D; 5303.3;</span><br><span class="line">pv &#x3D; pvfix(RATE, N, Payment)</span><br></pre></td></tr></table></figure>
+<p>输出结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pv &#x3D;</span><br><span class="line"></span><br><span class="line">   5.2381e+05</span><br></pre></td></tr></table></figure>
+<p>若按照4%的年化利率贴现，则现值为523810元，即若不考虑运营成本，则银行侧壁贷款的利润为23810元。<br><br>
+若在第5年末提前还款，即提前60期还款，则每期5303.3元，贴现率分别为4%、5%，现金流现值MATLAB计算代码如下：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">RATE1 &#x3D; 0.04 &#x2F; 12;</span><br><span class="line">RATE2 &#x3D; 0.05 &#x2F; 12;</span><br><span class="line">N &#x3D; 5 * 12;</span><br><span class="line">Payment &#x3D; 5303.3;</span><br><span class="line">pv1 &#x3D; pvfix(RATE1, N, Payment)</span><br><span class="line">pv2 &#x3D; pvfix(RATE2, N, Payment)</span><br><span class="line">pv1 - pv2</span><br></pre></td></tr></table></figure>
+<p>输出结果如下：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pv1 &#x3D;</span><br><span class="line"></span><br><span class="line">   2.8796e+05</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pv2 &#x3D;</span><br><span class="line"></span><br><span class="line">   2.8103e+05</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans &#x3D;</span><br><span class="line"></span><br><span class="line">   6.9386e+03</span><br></pre></td></tr></table></figure>
+<p>结果分析：贴现率分别为4%、5%的现金流现值为287960元，281030元，提前还款给银行造成的损失为6938.6元。<br><br>
+以上计算均为示例计算，贴现率均为假设。<br><br>
+注：60期并未把款全部还完，还需在第5年末把剩余的额度用完，如果存贷款利率不同，最后还款也将给银行带来损失。<br></p>
+
+      
+    </div>
+    
+    
+    
+	
+	
+	  <div>
+		<div>
+  
+    <div style="text-align:center;color:#bfbfbf;font-size:16px;">
+      <span>-------- 本文结束 </span>
+
+      <span> 感谢阅读 --------</span>
+    </div>
+  
+</div>
+	  </div>
+	
+	
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Qingchuan Wang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wangqingchuan92.com/2021/03/14/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%95%86%E4%B8%9A%E8%B4%B7%E6%AC%BE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" title="【金融学习】商业贷款分析笔记">https://wangqingchuan92.com/2021/03/14/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%95%86%E4%B8%9A%E8%B4%B7%E6%AC%BE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%87%91%E8%9E%8D%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 金融知识学习</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/28/%E3%80%90%E9%87%91%E8%9E%8D%E5%AD%A6%E4%B9%A0%E3%80%91%E5%88%A9%E6%81%AF%E7%90%86%E8%AE%BA%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0/" rel="next" title="【金融学习】利息理论基本知识笔记">
+                <i class="fa fa-chevron-left"></i> 【金融学习】利息理论基本知识笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/21/%E4%B8%AD%E5%9B%BD%E5%9B%BD%E5%AE%B6%E9%93%81%E8%B7%AF%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E6%9C%BA%E5%85%B3%E5%92%8C%E6%89%80%E5%B1%9E%E5%8D%95%E4%BD%8D%E7%BB%84%E7%BB%87%E6%9C%BA%E6%9E%84%E6%83%85%E5%86%B5/" rel="prev" title="中国国家铁路集团有限公司机关和所属单位组织机构情况">
+                中国国家铁路集团有限公司机关和所属单位组织机构情况 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fyw4" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangqingchuan92@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/wangqingchuan92" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-crosshairs"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/2166554557/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+		  
+		
+		
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.webfx.com/tools/emoji-cheat-sheet/" title="Emoji表情" target="_blank">Emoji表情</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://valine.js.org/" title="Valine评论管理" target="_blank">Valine评论管理</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://c.runoob.com/front-end/712/" title="MarkDown" target="_blank">MarkDown</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://latex.codecogs.com/eqneditor/editor.php" title="在线Latex公式生成" target="_blank">在线Latex公式生成</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">1 按揭贷款还款方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%89%E7%AD%89%E9%A2%9D%E8%BF%98%E6%AC%BE"><span class="nav-number">1.1.</span> <span class="nav-text">1）等额还款</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%89%E7%AD%89%E9%A2%9D%E6%9C%AC%E9%87%91%E8%BF%98%E6%AC%BE"><span class="nav-number">1.2.</span> <span class="nav-text">2）等额本金还款</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%89%E7%AD%89%E9%A2%9D%E9%80%92%E5%A2%9E%E8%BF%98%E6%AC%BE"><span class="nav-number">1.3.</span> <span class="nav-text">3）等额递增还款</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%89%E7%AD%89%E9%A2%9D%E9%80%92%E5%87%8F%E8%BF%98%E6%AC%BE"><span class="nav-number">1.4.</span> <span class="nav-text">4）等额递减还款</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%EF%BC%89%E6%8C%89%E6%9C%9F%E4%BB%98%E6%81%AF%E8%BF%98%E6%AC%BE"><span class="nav-number">1.5.</span> <span class="nav-text">5）按期付息还款</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%EF%BC%89%E5%88%B0%E6%9C%9F%E8%BF%98%E6%9C%AC%E8%BF%98%E6%AC%BE"><span class="nav-number">1.6.</span> <span class="nav-text">6）到期还本还款</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">2 等额还款模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">3 等额本金还款模型与计算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">4 还款方式比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">5 提前还款违约金估算</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script
+  async
+  src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"
+></script>
+
+<div class="copyright">&copy; 2020 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qingchuan Wang</span>
+<!--
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'A1QlMOKSOX0wAG3P34KWCqXs-gzGzoHsz',
+        appKey: 'Uve4GczLJzeKMzsY8VPHkOcg',
+        placeholder: '欢迎畅所欲言~',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  
+</body>
+</html>
