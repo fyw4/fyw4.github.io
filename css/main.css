@@ -1872,7 +1872,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff34;
+  background: #65833d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2755,7 +2755,7 @@ li.recent_posts_li {
   float: right;
   box-sizing: border-box;
   padding: 40px;
-  width: 900px;
+  width: calc(100% - 260px);
   background: #fff;
   min-height: 700px;
   box-shadow: initial;
